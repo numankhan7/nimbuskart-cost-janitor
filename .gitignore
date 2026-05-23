@@ -1,0 +1,14 @@
+# Local .terraform folders
+.terraform/
+*.executable
+*.exe
+
+# Terraform lock and state files
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Python cache and reports
+__pycache__/
+*.pyc
+janitor/report.json
