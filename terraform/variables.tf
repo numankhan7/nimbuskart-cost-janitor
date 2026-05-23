@@ -9,3 +9,12 @@ variable "environment" {
   description = "Deployment environment"
   default     = "staging"
 }
+variable "project_name" {
+  type    = string
+  default = "NimbusKart"
+}
+
+variable "owner" {
+  type    = string
+  default = "numan-khan"
+}

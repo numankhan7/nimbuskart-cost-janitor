@@ -21,3 +21,10 @@ provider "aws" {
     s3  = "http://localhost:4566"
   }
 }
+module "network" {
+  source       = "./modules/network"
+  aws_region   = var.aws_region
+  environment  = var.environment
+  project_name = var.project_name
+  owner        = var.owner
+}
