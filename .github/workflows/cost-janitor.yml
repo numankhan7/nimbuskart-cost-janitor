@@ -1,0 +1,30 @@
+name: NimbusKart Cost Janitor CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python Runtime
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Project Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f janitor/requirements.txt ]; then pip install -r janitor/requirements.txt; fi
+
+    - name: Run Automated Pytest Suite
+      run: |
+        cd janitor
+        python -m pytest -v -s
