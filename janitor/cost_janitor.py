@@ -4,7 +4,15 @@ import boto3
 from datetime import datetime, timezone
 
 def get_boto3_client(service_name):
-    """LocalStack se connect karne ke liye client configuration."""
+    """LocalStack se connect karne ke liye client configuration (Test friendly)."""
+    # Agar TEST_MODE environment variable set hai, toh endpoint_url mat daalo (Moto handle karega)
+    if os.environ.get("TEST_MODE") == "true":
+        return boto3.client(
+            service_name,
+            region_name="us-east-1"
+        )
+        
+    # Normal execution mein LocalStack use karo
     return boto3.client(
         service_name,
         region_name="us-east-1",
