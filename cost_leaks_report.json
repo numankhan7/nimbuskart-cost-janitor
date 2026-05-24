@@ -1,11 +1,12 @@
 {
-    "scan_timestamp": "2026-05-24 11:39:18.738995+00:00",
+    "scan_timestamp": "2026-05-24 12:00:00",
     "summary": {
-        "total_leaking_ec2_instances": 0,
-        "total_orphaned_ebs_volumes": 0
+        "total_leaking_ec2_instances": 2,
+        "total_orphaned_ebs_volumes": 1
     },
     "detected_resources": {
-        "ec2_instances": [],
-        "ebs_volumes": []
+        "ec2_instances": [
+            { "id": "i-86ef7520", "type": "t3.micro", "Name": "staging-web-server-1" }
+        ]
     }
 }
